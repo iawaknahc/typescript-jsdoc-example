@@ -1,0 +1,24 @@
+{
+  "name": "typescript-jsdoc-example",
+  "version": "1.0.0",
+  "description": "showcase how build a library with .d.ts bundle and documentation in TypeScript with JSDoc",
+  "type": "module",
+  "module": "./src/index.js",
+  "typings": "./types/index.d.ts",
+  "files": [
+    "src",
+    "types"
+  ],
+  "scripts": {
+    "clean": "rm -rf ./types ./docs",
+    "typecheck": "tsc --noEmit",
+    "dts": "node ./scripts/dts.js",
+    "docs": "typedoc --tsconfig tsconfig.typedoc.json types/index.d.ts",
+    "docs:serve": "python3 -m http.server --directory ./docs 3000"
+  },
+  "devDependencies": {
+    "dts-buddy": "^0.5.4",
+    "typedoc": "^0.27.3",
+    "typescript": "^5.7.2"
+  }
+}
